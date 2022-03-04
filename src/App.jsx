@@ -7,6 +7,7 @@ import './index.css'
 
 export default function App() {
   const [stocks, setStocks] = useState([])
+  const [portfolio, setPortfolio] = useState([])
 
   useEffect(function () {
     async function getStocks() {
@@ -22,10 +23,10 @@ export default function App() {
       <Header />
       <div className="row">
         <div className="col-6">
-          <StockContainer stocks={stocks}/>
+          <StockContainer stocks={stocks} portfolio={portfolio} setStocks={setStocks} setPortfolio={setPortfolio}/>
         </div>
         <div className="col-6">
-          <PortfolioContainer />
+          <PortfolioContainer stocks={stocks} portfolio={portfolio} setStocks={setStocks} setPortfolio={setPortfolio}/>
         </div>
       </div>
     </main>
